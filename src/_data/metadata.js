@@ -1,11 +1,12 @@
-module.exports = {
-  title: "Sami Reunanen - UI Developer",
-  url: "https://samireunanen.com/",
+export default {
+  title: "Sami Reunanen",
+  url: "https://reuski.dev/",
   language: "en",
-  description: "Hi, I'm Sami. I'm an experienced UI developer who loves to learn and explore new technologies.",
+  description:
+    "UI developer with two decades of experience designing and building the web.",
   author: {
     name: "Sami Reunanen",
-    email: "hello@samireunanen.com",
-    url: "https://samireunanen.com/",
+    email: "sami@reuski.dev",
+    url: "https://reuski.dev/",
   },
 };

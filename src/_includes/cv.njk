@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ metadata.title }}</title>
-    <meta name="robots" content="noindex">
-    <link rel="icon" type="image/x-icon" href="{{ '/images/favicon.ico' | url }}">
+    <meta name="color-scheme" content="light">
+    <title>{{ cv.personal.name }} - CV</title>
+    <meta name="robots" content="noindex, nofollow, noai, noimageai">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     {%- css %}* { box-sizing: border-box; }{% endcss %}
     {%- css %}{% include "public/css/cv.css" %}{% endcss %}
     <style>{% getBundle "css" %}</style>
@@ -14,57 +15,53 @@
     <header>
       <div>
         <h1>{{ cv.personal.name }}</h1>
-        <p>{{ cv.personal.title }}<br> {{ cv.personal.location }}<br> {{ cv.personal.email }}</p>
+        <p>
+          {{ cv.personal.title }}<br>
+          {{ cv.personal.location }}<br>
+          {{ cv.personal.email }}<br>
+          <a href="{{ cv.personal.linkedin }}">linkedin.com/in/reuski</a>
+        </p>
         <section>
-          <h1>Languages</h1>
+          <h2>Languages</h2>
           {% for item in cv.personal.languages %}
-            <p>{{ item.language }}
-              <span>— {{ item.level }}</span>
-            </p>
+            <p>{{ item.language }} <span>-- {{ item.level }}</span></p>
           {% endfor %}
         </section>
       </div>
-      <img src="{{ '/images/cv.webp' | url }}" width="180" height="180" alt="{{ title }}">
+      <img src="/images/cv.webp" width="180" height="180" alt="{{ cv.personal.name }}">
     </header>
     <main>
-      <section id="about">
-        <h1>About</h1>
+      <section>
+        <h2>About</h2>
         {{ content | safe }}
       </section>
-      <section id="competences">
-        <h1>Competences</h1>
-        <div>
-          {% for item in cv.competences %}
+      <section>
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          {% for item in cv.skills %}
             <div>
-              <h4>{{ item.title }}</h4>
-              <div style="width: 100%; background: #ccc; overflow: hidden;">
-                <div style="float: left; background: black; width: {{ item.level }}%; height: 1rem;"></div>
-              </div>
+              <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
             </div>
           {% endfor %}
         </div>
       </section>
-      <section id="experience">
-        <h1>Experience</h1>
+      <section>
+        <h2>Experience</h2>
         {% for item in cv.experience %}
-          <div>
-            <h4>{{ item.employer }}
-              <span>— {{ item.title }}</span>
-            </h4>
-            <p>{{ item.time }}</p>
-          </div>
+          <article>
+            <h3>{{ item.employer }} <span>-- {{ item.title }}</span></h3>
+            <p><time>{{ item.time }}</time></p>
+          </article>
         {% endfor %}
       </section>
-      <section id="education">
-        <h1>Education</h1>
+      <section>
+        <h2>Education</h2>
         {% for item in cv.education %}
-          <div>
-            <h4>{{ item.school }}
-              <span>— {{ item.time }}</span>
-            </h4>
+          <article>
+            <h3>{{ item.school }} <span>-- {{ item.time }}</span></h3>
             <p>{{ item.degree }}</p>
-          </div>
+          </article>
         {% endfor %}
       </section>
     </main>

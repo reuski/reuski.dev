@@ -1,28 +1,23 @@
 {
-  "name": "samireunanen.com",
-  "version": "1.0.0",
+  "name": "reuski.dev",
+  "version": "2.0.0",
+  "type": "module",
   "description": "A personal website.",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve --quiet",
-    "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
-    "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
-    "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+    "build": "bun eleventy",
+    "dev": "bun eleventy --serve --quiet"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/reuski/samireunanen.com.git"
+    "url": "git://github.com/reuski/reuski.dev.git"
   },
   "author": {
     "name": "Sami Reunanen",
-    "email": "hello@samireunanen.com",
-    "url": "https://samireunanen.com/"
+    "email": "sami@reuski.dev",
+    "url": "https://reuski.dev/"
   },
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0",
-    "@11ty/eleventy-fetch": "^3.0.0",
-    "@11ty/eleventy-plugin-bundle": "^1.0.1",
-    "@netlify/plugin-lighthouse": "^4.0.7"
+    "@11ty/eleventy": "^3.1.0"
   }
 }
