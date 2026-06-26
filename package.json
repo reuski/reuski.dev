@@ -4,8 +4,8 @@
   "type": "module",
   "description": "A personal website.",
   "scripts": {
-    "build": "bun eleventy",
-    "dev": "bun eleventy --serve --quiet"
+    "build": "bun node_modules/@11ty/eleventy/cmd.cjs",
+    "dev": "bun node_modules/@11ty/eleventy/cmd.cjs --serve --quiet"
   },
   "repository": {
     "type": "git",
